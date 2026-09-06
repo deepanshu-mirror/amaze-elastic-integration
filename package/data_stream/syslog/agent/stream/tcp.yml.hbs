@@ -1,0 +1,26 @@
+host: "{{listen_address}}:{{listen_port}}"
+tags:
+{{#if preserve_original_event}}
+  - preserve_original_event
+{{/if}}
+{{#each tags as |tag|}}
+  - {{tag}}
+{{/each}}
+{{#contains "forwarded" tags}}
+publisher_pipeline.disable_host: true
+{{/contains}}
+processors:
+{{#if preserve_original_event}}
+- copy_fields:
+    fields:
+      - from: message
+        to: event.original
+    fail_on_error: false
+{{/if}}
+- syslog:
+    field: message
+    format: {{format}}
+    timezone: "{{timezone}}"
+{{#if processors}}
+{{processors}}
+{{/if}}

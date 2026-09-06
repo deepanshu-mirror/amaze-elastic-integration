@@ -1,0 +1,225 @@
+- name: data_stream.dataset
+  type: constant_keyword
+  value: amaze.syslog
+
+- name: data_stream.namespace
+  type: constant_keyword
+  value: default
+
+- name: data_stream.type
+  type: constant_keyword
+  value: logs
+
+- name: "@timestamp"
+  type: date
+  description: Timestamp when the AMaze Rich Alert occurred
+
+- name: event.id
+  type: keyword
+  description: Unique identifier of the neural event (neural_event_id)
+
+- name: event.action
+  type: keyword
+  description: Threat type reported by AMaze, e.g. brute_force
+
+- name: event.category
+  type: keyword
+  description: ECS event category for the dispatched alert
+
+- name: event.type
+  type: keyword
+  description: ECS event type for the dispatched alert
+
+- name: event.kind
+  type: keyword
+  description: ECS event kind for the dispatched alert
+
+- name: event.original
+  type: keyword
+  description: Raw syslog line received from the AMaze dispatcher
+
+- name: event.created
+  type: date
+  description: Timestamp when the event was processed by the ingest pipeline
+
+- name: event.ingested
+  type: date
+  description: Timestamp when the event was ingested into Elasticsearch
+
+- name: event.severity
+  type: long
+  description: Threat score assigned by AMaze and mapped to ECS severity
+
+- name: event.module
+  type: keyword
+  description: Module name for the AMaze integration
+
+- name: event.dataset
+  type: keyword
+  description: Dataset name for the AMaze syslog data stream
+
+- name: source.ip
+  type: ip
+  description: Source IP address associated with the detected activity
+
+- name: source.geo.country_iso_code
+  type: keyword
+  description: ISO country code of the source IP
+
+- name: source.geo.location
+  type: geo_point
+  description: Geographic location of the source IP reported by AMaze
+
+- name: destination.ip
+  type: ip
+  description: Destination IP address targeted by the detected activity
+
+- name: network.protocol
+  type: keyword
+  description: Network protocol involved in the detected activity
+
+- name: threat.technique.id
+  type: keyword
+  description: MITRE ATT&CK technique identifier associated with the alert
+
+- name: user.name
+  type: keyword
+  description: Username involved in the detected activity
+
+- name: user_agent.original
+  type: keyword
+  description: User agent observed in the detected activity
+
+- name: message
+  type: keyword
+  description: Raw sensor log line reported by AMaze
+
+- name: log.syslog.appname
+  type: keyword
+  description: Syslog APP-NAME, always MirrorMire-AMaze
+
+- name: log.syslog.hostname
+  type: keyword
+  description: Hostname of the AMaze dispatcher that sent the syslog message
+
+- name: log.syslog.priority
+  type: long
+  description: Syslog priority (facility * 8 + severity), 134 for AMaze Rich Alerts
+
+- name: log.syslog.facility.code
+  type: long
+  description: Syslog facility code, 16 (local0) for AMaze Rich Alerts
+
+- name: log.syslog.facility.name
+  type: keyword
+  description: Syslog facility name, local0 for AMaze Rich Alerts
+
+- name: log.syslog.severity.code
+  type: long
+  description: Syslog severity code, 6 (info) for AMaze Rich Alerts
+
+- name: log.syslog.severity.name
+  type: keyword
+  description: Syslog severity name, info for AMaze Rich Alerts
+
+- name: log.syslog.timestamp
+  type: date
+  description: Timestamp from the syslog header
+
+- name: amaze.alert_type
+  type: keyword
+  description: Outbound payload type, always neural_event.actionable
+
+- name: amaze.schema_version
+  type: long
+  description: Version of the Rich Alert outbound schema
+
+- name: amaze.ticket_id
+  type: keyword
+  description: AMaze ticket UUID the alert is associated with
+
+- name: amaze.neural_event_id
+  type: keyword
+  description: AMaze neural event UUID that raised the alert
+
+- name: amaze.timestamp
+  type: keyword
+  description: Original event timestamp reported by AMaze
+
+- name: amaze.src_ip
+  type: ip
+  description: Original source IP address from the AMaze event
+
+- name: amaze.dest_ip
+  type: ip
+  description: Original destination IP address from the AMaze event
+
+- name: amaze.threat_score
+  type: long
+  description: Original threat score assigned by AMaze
+
+- name: amaze.fraud_score
+  type: long
+  description: Original fraud score assigned by AMaze
+
+- name: amaze.threat_type
+  type: keyword
+  description: Original threat type reported by AMaze
+
+- name: amaze.country
+  type: keyword
+  description: Original country code reported by AMaze
+
+- name: amaze.lat
+  type: double
+  description: Original latitude reported by AMaze
+
+- name: amaze.lon
+  type: double
+  description: Original longitude reported by AMaze
+
+- name: amaze.username
+  type: keyword
+  description: Original username from the AMaze event
+
+- name: amaze.user_agent
+  type: keyword
+  description: Original user agent from the AMaze event
+
+- name: amaze.ja3_hash
+  type: keyword
+  description: JA3 TLS fingerprint hash from the AMaze event
+
+- name: amaze.initial_ttp
+  type: keyword
+  description: MITRE ATT&CK techniques detected at initial access
+
+- name: amaze.ttp
+  type: keyword
+  description: MITRE ATT&CK technique identifier from the AMaze event
+
+- name: amaze.site_id
+  type: keyword
+  description: Site UUID the event belongs to
+
+- name: amaze.sca_id
+  type: keyword
+  description: Stable SCA product identifier
+
+- name: amaze.sca_name
+  type: keyword
+  description: Per-deployment SCA display label
+
+- name: amaze.vm_id
+  type: keyword
+  description: Honeypot / virtual machine identifier that captured the activity
+
+- name: amaze.enrichment_details
+  type: object
+  object_type: keyword
+  enabled: false
+  description: Per-source enrichment results (ipqs, abuseipdb, virustotal, ...)
+
+- name: amaze.logline
+  type: keyword
+  description: Raw sensor log line captured by AMaze

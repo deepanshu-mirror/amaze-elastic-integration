@@ -1,0 +1,64 @@
+{
+  "attributes": {
+    "controlGroupInput": {
+      "chainingSystem": "HIERARCHICAL",
+      "controlStyle": "oneLine",
+      "ignoreParentSettingsJSON": "{\"ignoreFilters\":false,\"ignoreQuery\":false,\"ignoreTimerange\":false,\"ignoreValidations\":false}",
+      "panelsJSON": "{}",
+      "showApplySelections": false
+    },
+    "description": "Overview of AMaze Rich Alerts pushed by the AMaze dispatcher",
+    "kibanaSavedObjectMeta": {
+      "searchSourceJSON": "{\"filter\":[{\"$state\":{\"store\":\"appState\"},\"meta\":{\"alias\":null,\"disabled\":false,\"field\":\"data_stream.dataset\",\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index\",\"key\":\"data_stream.dataset\",\"negate\":false,\"params\":{\"query\":\"amaze.dispatch\"},\"type\":\"phrase\"},\"query\":{\"match_phrase\":{\"data_stream.dataset\":\"amaze.dispatch\"}}}],\"query\":{\"language\":\"kuery\",\"query\":\"\"}}"
+    },
+    "optionsJSON": "{\"hidePanelTitles\":false,\"syncColors\":false,\"syncCursor\":true,\"syncTooltips\":false,\"useMargins\":true}",
+    "panelsJSON": "[{\"embeddableConfig\":{\"attributes\":{\"references\":[{\"id\":\"logs-amaze.dispatch-*\",\"name\":\"indexpattern-datasource-layer-10a50624-3c39-42c9-b597-b6472d908bc0\",\"type\":\"index-pattern\"},{\"id\":\"logs-amaze.dispatch-*\",\"name\":\"25387c10-b394-4595-a512-71f714dbd32a\",\"type\":\"index-pattern\"}],\"state\":{\"adHocDataViews\":{},\"datasourceStates\":{\"formBased\":{\"layers\":{\"10a50624-3c39-42c9-b597-b6472d908bc0\":{\"columnOrder\":[\"b513b648-882a-48a2-b587-ba61467c1e43\",\"30fcc359-32cd-436e-89a3-06be7e2d4a18\"],\"columns\":{\"30fcc359-32cd-436e-89a3-06be7e2d4a18\":{\"customLabel\":true,\"dataType\":\"number\",\"isBucketed\":false,\"label\":\"Alerts\",\"operationType\":\"count\",\"params\":{\"emptyAsNull\":true},\"scale\":\"ratio\",\"sourceField\":\"___records___\"},\"b513b648-882a-48a2-b587-ba61467c1e43\":{\"customLabel\":true,\"dataType\":\"string\",\"isBucketed\":true,\"label\":\"event.action\",\"operationType\":\"terms\",\"params\":{\"exclude\":[],\"excludeIsRegex\":false,\"include\":[],\"includeIsRegex\":false,\"missingBucket\":false,\"orderBy\":{\"columnId\":\"30fcc359-32cd-436e-89a3-06be7e2d4a18\",\"type\":\"column\"},\"orderDirection\":\"desc\",\"otherBucket\":false,\"parentFormat\":{\"id\":\"terms\"},\"size\":5},\"scale\":\"ordinal\",\"sourceField\":\"event.action\"}},\"incompleteColumns\":{}}}},\"textBased\":{\"layers\":{}}},\"filters\":[],\"internalReferences\":[],\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"visualization\":{\"layers\":[{\"categoryDisplay\":\"hide\",\"emptySizeRatio\":0.3,\"layerId\":\"10a50624-3c39-42c9-b597-b6472d908bc0\",\"layerType\":\"data\",\"legendDisplay\":\"show\",\"legendMaxLines\":1,\"legendPosition\":\"right\",\"legendSize\":\"auto\",\"metrics\":[\"30fcc359-32cd-436e-89a3-06be7e2d4a18\"],\"nestedLegend\":false,\"numberDisplay\":\"percent\",\"percentDecimals\":2,\"primaryGroups\":[\"b513b648-882a-48a2-b587-ba61467c1e43\"],\"secondaryGroups\":[],\"showValuesInLegend\":true,\"truncateLegend\":true}],\"palette\":{\"name\":\"kibana_palette\",\"type\":\"palette\"},\"shape\":\"donut\"}},\"title\":\"AMaze Alerts by Action\",\"type\":\"lens\",\"visualizationType\":\"lnsPie\"},\"enhancements\":{\"dynamicActions\":{\"events\":[]}},\"filters\":[],\"hidePanelTitles\":false,\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"syncColors\":false,\"syncCursor\":true,\"syncTooltips\":false},\"gridData\":{\"h\":15,\"i\":\"f84780f9-5304-4c24-9fe6-dfe21208864b\",\"w\":16,\"x\":0,\"y\":0},\"panelIndex\":\"f84780f9-5304-4c24-9fe6-dfe21208864b\",\"title\":\"AMaze Alerts by Action\",\"type\":\"lens\"},{\"embeddableConfig\":{\"attributes\":{\"references\":[{\"id\":\"logs-amaze.dispatch-*\",\"name\":\"indexpattern-datasource-layer-76b2119b-252b-4e58-b893-19971507943b\",\"type\":\"index-pattern\"},{\"id\":\"logs-amaze.dispatch-*\",\"name\":\"89e0f9f2-bace-43ce-b185-5a9bd86b1c7f\",\"type\":\"index-pattern\"}],\"state\":{\"adHocDataViews\":{},\"datasourceStates\":{\"formBased\":{\"layers\":{\"76b2119b-252b-4e58-b893-19971507943b\":{\"columnOrder\":[\"a23633f8-cd13-4cbb-9c92-ca70f06938a7\",\"18393d7b-5009-4b16-a969-8656ab207a9b\"],\"columns\":{\"18393d7b-5009-4b16-a969-8656ab207a9b\":{\"dataType\":\"number\",\"isBucketed\":false,\"label\":\"Count of alerts\",\"operationType\":\"count\",\"params\":{\"emptyAsNull\":true},\"scale\":\"ratio\",\"sourceField\":\"___records___\"},\"a23633f8-cd13-4cbb-9c92-ca70f06938a7\":{\"dataType\":\"date\",\"isBucketed\":true,\"label\":\"Timestamp\",\"operationType\":\"date_histogram\",\"params\":{\"dropPartials\":false,\"includeEmptyRows\":true,\"interval\":\"auto\",\"timeZone\":\"UTC\"},\"scale\":\"interval\",\"sourceField\":\"@timestamp\"}},\"incompleteColumns\":{},\"sampling\":1}}},\"textBased\":{\"layers\":{}}},\"filters\":[],\"internalReferences\":[],\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"visualization\":{\"axisTitlesVisibilitySettings\":{\"x\":true,\"yLeft\":true,\"yRight\":true},\"fittingFunction\":\"None\",\"gridlinesVisibilitySettings\":{\"x\":true,\"yLeft\":true,\"yRight\":true},\"labelsOrientation\":{\"x\":0,\"yLeft\":0,\"yRight\":0},\"layers\":[{\"accessors\":[\"18393d7b-5009-4b16-a969-8656ab207a9b\"],\"layerId\":\"76b2119b-252b-4e58-b893-19971507943b\",\"layerType\":\"data\",\"position\":\"top\",\"seriesType\":\"bar\",\"showGridlines\":false,\"xAccessor\":\"a23633f8-cd13-4cbb-9c92-ca70f06938a7\"}],\"legend\":{\"isVisible\":true,\"position\":\"right\"},\"preferredSeriesType\":\"bar\",\"tickLabelsVisibilitySettings\":{\"x\":true,\"yLeft\":true,\"yRight\":true},\"valueLabels\":\"hide\"}},\"title\":\"AMaze Alerts over Time\",\"type\":\"lens\",\"visualizationType\":\"lnsXY\"},\"enhancements\":{\"dynamicActions\":{\"events\":[]}},\"filters\":[],\"hidePanelTitles\":false,\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"syncColors\":false,\"syncCursor\":true,\"syncTooltips\":false},\"gridData\":{\"h\":15,\"i\":\"c137d943-1dd2-449e-ab2a-67068f0d57e0\",\"w\":32,\"x\":16,\"y\":0},\"panelIndex\":\"c137d943-1dd2-449e-ab2a-67068f0d57e0\",\"title\":\"AMaze Alerts over Time\",\"type\":\"lens\"},{\"embeddableConfig\":{\"attributes\":{\"references\":[{\"id\":\"logs-amaze.dispatch-*\",\"name\":\"indexpattern-datasource-layer-b8a75e4a-031b-472b-aa7d-dd3fc1d85b0f\",\"type\":\"index-pattern\"},{\"id\":\"logs-amaze.dispatch-*\",\"name\":\"505f58d2-61e0-4500-b645-24e11e07649c\",\"type\":\"index-pattern\"}],\"state\":{\"adHocDataViews\":{},\"datasourceStates\":{\"formBased\":{\"layers\":{\"b8a75e4a-031b-472b-aa7d-dd3fc1d85b0f\":{\"columnOrder\":[\"1cf7ded4-72b8-4b26-85c8-26c54b9bed44\",\"4f728870-6f77-4d47-8550-1263e807b444\"],\"columns\":{\"1cf7ded4-72b8-4b26-85c8-26c54b9bed44\":{\"dataType\":\"string\",\"isBucketed\":true,\"label\":\"threat.technique.id\",\"operationType\":\"terms\",\"params\":{\"exclude\":[],\"excludeIsRegex\":false,\"include\":[],\"includeIsRegex\":false,\"missingBucket\":false,\"orderBy\":{\"columnId\":\"4f728870-6f77-4d47-8550-1263e807b444\",\"type\":\"column\"},\"orderDirection\":\"desc\",\"otherBucket\":false,\"parentFormat\":{\"id\":\"terms\"},\"size\":10},\"scale\":\"ordinal\",\"sourceField\":\"threat.technique.id\"},\"4f728870-6f77-4d47-8550-1263e807b444\":{\"dataType\":\"number\",\"isBucketed\":false,\"label\":\"Alerts\",\"operationType\":\"count\",\"params\":{\"emptyAsNull\":true},\"scale\":\"ratio\",\"sourceField\":\"___records___\"}},\"incompleteColumns\":{}}}},\"textBased\":{\"layers\":{}}},\"filters\":[],\"internalReferences\":[],\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"visualization\":{\"columns\":[{\"columnId\":\"1cf7ded4-72b8-4b26-85c8-26c54b9bed44\",\"width\":220},{\"columnId\":\"4f728870-6f77-4d47-8550-1263e807b444\"}],\"layerId\":\"b8a75e4a-031b-472b-aa7d-dd3fc1d85b0f\",\"layerType\":\"data\",\"sorting\":{\"columnId\":\"4f728870-6f77-4d47-8550-1263e807b444\",\"direction\":\"desc\"}}},\"title\":\"Top MITRE ATT\\u0026CK Techniques\",\"type\":\"lens\",\"visualizationType\":\"lnsDatatable\"},\"enhancements\":{\"dynamicActions\":{\"events\":[]}},\"filters\":[],\"hidePanelTitles\":false,\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"syncColors\":false,\"syncCursor\":true,\"syncTooltips\":false},\"gridData\":{\"h\":15,\"i\":\"b448d4a0-6a82-41e7-8448-9d1b1552a98e\",\"w\":24,\"x\":0,\"y\":15},\"panelIndex\":\"b448d4a0-6a82-41e7-8448-9d1b1552a98e\",\"title\":\"Top MITRE ATT\\u0026CK Techniques\",\"type\":\"lens\"},{\"embeddableConfig\":{\"enhancements\":{},\"savedVis\":{\"data\":{\"aggs\":[],\"searchSource\":{\"filter\":[],\"query\":{\"language\":\"kuery\",\"query\":\"\"}}},\"description\":\"AMaze overview welcome panel\",\"id\":\"\",\"params\":{\"fontSize\":14,\"markdown\":\"# AMaze Alerts\\n\\nThis dashboard visualizes security alerts collected from the MirrorMire AMaze integration.\\n\\nUse the **AMaze Alerts by Action** donut to see alert types, **AMaze Alerts over Time** for the detection trend, and **Top MITRE ATT\\u0026CK Techniques** for the most common techniques.\\n\\nData is filtered to the `amaze.dispatch` dataset.\",\"openLinksInNewTab\":false},\"title\":\"\",\"type\":\"markdown\",\"uiState\":{}}},\"gridData\":{\"h\":9,\"i\":\"edfef591-315d-4a0b-803b-6e7ac149ca1f\",\"w\":24,\"x\":24,\"y\":15},\"panelIndex\":\"edfef591-315d-4a0b-803b-6e7ac149ca1f\",\"title\":\"AMaze Alerts\",\"type\":\"visualization\",\"version\":\"8.8.0\"}]",
+    "timeRestore": false,
+    "title": "AMaze Rich Alerts Overview",
+    "version": 1
+  },
+  "coreMigrationVersion": "8.8.0",
+  "created_at": "2026-08-19T05:02:18.300673Z",
+  "id": "amaze-dispatch-overview",
+  "managed": false,
+  "references": [
+    {
+      "id": "logs-amaze.dispatch-*",
+      "name": "kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
+      "type": "index-pattern"
+    },
+    {
+      "id": "logs-amaze.dispatch-*",
+      "name": "f84780f9-5304-4c24-9fe6-dfe21208864b:indexpattern-datasource-layer-10a50624-3c39-42c9-b597-b6472d908bc0",
+      "type": "index-pattern"
+    },
+    {
+      "id": "logs-amaze.dispatch-*",
+      "name": "f84780f9-5304-4c24-9fe6-dfe21208864b:25387c10-b394-4595-a512-71f714dbd32a",
+      "type": "index-pattern"
+    },
+    {
+      "id": "logs-amaze.dispatch-*",
+      "name": "c137d943-1dd2-449e-ab2a-67068f0d57e0:indexpattern-datasource-layer-76b2119b-252b-4e58-b893-19971507943b",
+      "type": "index-pattern"
+    },
+    {
+      "id": "logs-amaze.dispatch-*",
+      "name": "c137d943-1dd2-449e-ab2a-67068f0d57e0:89e0f9f2-bace-43ce-b185-5a9bd86b1c7f",
+      "type": "index-pattern"
+    },
+    {
+      "id": "logs-amaze.dispatch-*",
+      "name": "b448d4a0-6a82-41e7-8448-9d1b1552a98e:indexpattern-datasource-layer-b8a75e4a-031b-472b-aa7d-dd3fc1d85b0f",
+      "type": "index-pattern"
+    },
+    {
+      "id": "logs-amaze.dispatch-*",
+      "name": "b448d4a0-6a82-41e7-8448-9d1b1552a98e:505f58d2-61e0-4500-b645-24e11e07649c",
+      "type": "index-pattern"
+    }
+  ],
+  "type": "dashboard",
+  "typeMigrationVersion": "10.2.0",
+  "updated_by": "elastic-package"
+}

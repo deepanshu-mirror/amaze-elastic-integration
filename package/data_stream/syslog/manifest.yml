@@ -1,0 +1,74 @@
+title: Syslog
+
+type: logs
+
+streams:
+  - input: udp
+    title: AMaze Syslog (UDP)
+    description: Receive AMaze Rich Alerts over UDP syslog (RFC3164)
+    template_path: udp.yml.hbs
+    vars:
+      - name: listen_address
+        type: text
+        title: Listen Address
+        description: The interface to bind the UDP listener to. Set to 0.0.0.0 to accept traffic from all interfaces.
+        default: 0.0.0.0
+
+      - name: listen_port
+        type: integer
+        title: Listen Port
+        description: The UDP port AMaze sends plain-udp syslog dispatches to.
+        default: 514
+
+      - name: format
+        type: text
+        title: Syslog Format
+        description: Syslog format used by the AMaze dispatcher.
+        default: rfc3164
+
+      - name: timezone
+        type: text
+        title: Timezone
+        description: Timezone used to interpret syslog header timestamps. The AMaze dispatcher emits UTC.
+        default: UTC
+
+      - name: preserve_original_event
+        type: bool
+        title: Preserve Original Event
+        description: Store the raw syslog line in event.original.
+        default: true
+
+  - input: tcp
+    title: AMaze Syslog (TCP)
+    description: Receive AMaze Rich Alerts over TCP syslog (RFC3164)
+    template_path: tcp.yml.hbs
+    vars:
+      - name: listen_address
+        type: text
+        title: Listen Address
+        description: The interface to bind the TCP listener to. Set to 0.0.0.0 to accept traffic from all interfaces.
+        default: 0.0.0.0
+
+      - name: listen_port
+        type: integer
+        title: Listen Port
+        description: The TCP port AMaze sends plain-tcp syslog dispatches to.
+        default: 514
+
+      - name: format
+        type: text
+        title: Syslog Format
+        description: Syslog format used by the AMaze dispatcher.
+        default: rfc3164
+
+      - name: timezone
+        type: text
+        title: Timezone
+        description: Timezone used to interpret syslog header timestamps. The AMaze dispatcher emits UTC.
+        default: UTC
+
+      - name: preserve_original_event
+        type: bool
+        title: Preserve Original Event
+        description: Store the raw syslog line in event.original.
+        default: true

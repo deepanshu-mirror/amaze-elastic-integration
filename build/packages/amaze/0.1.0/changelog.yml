@@ -1,8 +1,0 @@
-- version: "0.1.0"
-  changes:
-    - description: Initial AMaze Elastic package
-      type: enhancement
-      link: https://github.com/Yashaswini-11-ai/amaze-elastic-integration/pull/1
-    - description: Add AMaze logo icon and Alerts Overview Kibana dashboard
-      type: enhancement
-      link: https://github.com/Yashaswini-11-ai/amaze-elastic-integration/pull/1

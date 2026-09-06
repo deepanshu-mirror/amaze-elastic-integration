@@ -1,0 +1,72 @@
+title: Dispatch
+
+type: logs
+
+streams:
+  - input: http_endpoint
+    title: AMaze Dispatch (Webhook)
+    description: Receive AMaze Rich Alerts pushed over HTTP webhook
+    template_path: stream.yml.hbs
+    vars:
+      - name: listen_address
+        type: text
+        title: Listen Address
+        description: The interface to bind the webhook listener to. Set to 0.0.0.0 to accept traffic from all interfaces.
+        default: 0.0.0.0
+
+      - name: listen_port
+        type: integer
+        title: Listen Port
+        description: The TCP port the webhook listener accepts AMaze dispatch POSTs on.
+        default: 8080
+
+      - name: url_path
+        type: text
+        title: Webhook URL Path
+        description: URL path the webhook listener responds to (the AMaze integration endpoint_url is http://<agent>:<listen_port><url_path>).
+        default: /webhook
+
+      - name: secret_header
+        type: text
+        title: Secret Header
+        description: Optional HTTP header the webhook validates, e.g. `Authorization` or `X-AMaze-Api-Key`. Leave empty to skip header auth.
+
+      - name: secret_value
+        type: password
+        title: Secret Value
+        description: Expected value of the secret header, e.g. `Bearer <token>` for AMaze bearer mode or the API key for api-key mode.
+        secret: true
+
+      - name: hmac_key
+        type: password
+        title: HMAC Shared Secret
+        description: Shared secret used to validate AMaze HMAC-signed dispatches (X-AMaze-Signature).
+        secret: true
+
+      - name: hmac_header
+        type: text
+        title: HMAC Signature Header
+        description: Header carrying the HMAC signature.
+        default: X-AMaze-Signature
+
+      - name: hmac_type
+        type: text
+        title: HMAC Hash Algorithm
+        description: Hash algorithm used to compute the HMAC signature.
+        default: sha256
+
+      - name: hmac_prefix
+        type: text
+        title: HMAC Value Prefix
+        description: Optional prefix expected before the signature value.
+
+      - name: preserve_original_event
+        type: bool
+        title: Preserve Original Event
+        description: Store the raw JSON dispatch in event.original.
+        default: true
+
+      - name: ssl
+        type: yaml
+        title: SSL Configuration
+        description: Optional TLS configuration for the webhook listener.

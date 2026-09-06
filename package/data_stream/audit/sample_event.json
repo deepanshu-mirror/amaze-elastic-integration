@@ -1,6 +1,0 @@
-{
-  "id": "audit-001",
-  "actor": "analyst@example.com",
-  "action": "ticket.update",
-  "timestamp": "2026-08-05T10:05:00Z"
-}

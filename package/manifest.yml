@@ -4,9 +4,9 @@ name: amaze
 
 title: MirrorMire AMaze
 
-version: "0.1.0"
+version: "1.0.0"
 
-description: "MirrorMire AMaze Elastic Integration"
+description: "MirrorMire AMaze Elastic Package for receiving dispatcher-pushed Rich Alerts in Elastic Security"
 
 type: integration
 
@@ -20,22 +20,31 @@ conditions:
 policy_templates:
   - name: amaze
     title: AMaze Integration
-    description: Collect alerts and logs from MirrorMire AMaze
+    description: Receive Rich Alerts pushed by the MirrorMire AMaze dispatcher
     data_streams:
-      - alerts
-      - audit
-      - logs
+      - dispatch
+      - syslog
     inputs:
-      - type: httpjson
-        title: AMaze
-        description: Collect AMaze alerts and logs
+      - type: http_endpoint
+        title: AMaze Dispatch (Webhook)
+        description: Receive AMaze Rich Alerts pushed over HTTP webhook
+      - type: udp
+        title: AMaze Syslog (UDP)
+        description: Receive AMaze Rich Alerts over UDP syslog
+      - type: tcp
+        title: AMaze Syslog (TCP)
+        description: Receive AMaze Rich Alerts over TCP syslog
 
 icons:
   - src: "/img/amaze-logo.svg"
     title: MirrorMire AMaze logo
-    size: 32x32
+    size: 1254x1254
     type: image/svg+xml
+  - src: "/img/amaze-logo.png"
+    title: MirrorMire AMaze logo
+    size: 1254x1254
+    type: image/png
 
 owner:
-  github: Yashaswini-11-ai
+  github: MirrorMire
   type: community

@@ -1,8 +1,0 @@
-{
-  "id": "log-001",
-  "protocol": "ssh",
-  "src_ip": "185.220.101.34",
-  "threat_score": 88,
-  "country": "DE",
-  "timestamp": "2026-08-05T10:00:00Z"
-}

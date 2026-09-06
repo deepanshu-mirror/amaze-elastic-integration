@@ -1,8 +1,5 @@
-- version: "0.1.0"
+- version: "1.0.0"
   changes:
-    - description: Initial AMaze Elastic package
+    - description: Initial push-only AMaze Elastic package — receive Rich Alerts pushed by the AMaze dispatcher over webhook (dispatch data stream) and syslog (syslog data stream, UDP/TCP)
       type: enhancement
-      link: https://github.com/Yashaswini-11-ai/amaze-elastic-integration/pull/1
-    - description: Add AMaze logo icon and Alerts Overview Kibana dashboard
-      type: enhancement
-      link: https://github.com/Yashaswini-11-ai/amaze-elastic-integration/pull/1
+      link: https://github.com/MirrorMire/amaze-elastic-integration/pull/1

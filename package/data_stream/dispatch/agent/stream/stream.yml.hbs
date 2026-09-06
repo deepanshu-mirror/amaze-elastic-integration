@@ -1,0 +1,48 @@
+type: http_endpoint
+enabled: true
+# Map the JSON request body to the root of the document so the ingest
+# pipeline can normalize the Rich Alert fields directly.
+prefix: .
+{{#if url_path}}
+url: "{{url_path}}"
+{{/if}}
+{{#if listen_address}}
+listen_address: {{listen_address}}
+{{/if}}
+{{#if listen_port}}
+listen_port: {{listen_port}}
+{{/if}}
+{{#if secret_header}}
+{{#if secret_value}}
+secret.header: "{{secret_header}}"
+secret.value: "{{secret_value}}"
+{{/if}}
+{{/if}}
+{{#if hmac_key}}
+hmac.header: "{{hmac_header}}"
+hmac.key: "{{hmac_key}}"
+hmac.type: "{{hmac_type}}"
+{{#if hmac_prefix}}
+hmac.prefix: "{{hmac_prefix}}"
+{{/if}}
+{{/if}}
+{{#if preserve_original_event}}
+preserve_original_event: true
+{{/if}}
+{{#if ssl}}
+ssl: {{ssl}}
+{{/if}}
+tags:
+{{#if preserve_original_event}}
+  - preserve_original_event
+{{/if}}
+{{#each tags as |tag|}}
+  - {{tag}}
+{{/each}}
+{{#contains "forwarded" tags}}
+publisher_pipeline.disable_host: true
+{{/contains}}
+{{#if processors}}
+processors:
+{{processors}}
+{{/if}}
